@@ -1,0 +1,194 @@
+#[doc = "Register `CAL_CTL` reader"]
+pub struct R(crate::R<CAL_CTL_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<CAL_CTL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<CAL_CTL_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<CAL_CTL_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `CAL_CTL` writer"]
+pub struct W(crate::W<CAL_CTL_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<CAL_CTL_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<CAL_CTL_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<CAL_CTL_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `CALIB_VAL` reader - Calibration value for absolute frequency (at a fixed temperature). Each step causes 128 ticks to be added or removed each hour. Effectively that means that each step is 1.085ppm (= 128/(60*60*32,768)). Positive values 0x01-0x3c (1..60) add pulses, negative values remove pulses, thus giving a range of +/-65.1 ppm (limited by 60 minutes per hour, not the range of this field) Calibration is performed hourly, starting at 59 minutes and 59 seconds, and applied as 64 ticks every 30 seconds until there have been 2*CALIB_VAL adjustments."]
+pub struct CALIB_VAL_R(crate::FieldReader<u8, u8>);
+impl CALIB_VAL_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        CALIB_VAL_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CALIB_VAL_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CALIB_VAL` writer - Calibration value for absolute frequency (at a fixed temperature). Each step causes 128 ticks to be added or removed each hour. Effectively that means that each step is 1.085ppm (= 128/(60*60*32,768)). Positive values 0x01-0x3c (1..60) add pulses, negative values remove pulses, thus giving a range of +/-65.1 ppm (limited by 60 minutes per hour, not the range of this field) Calibration is performed hourly, starting at 59 minutes and 59 seconds, and applied as 64 ticks every 30 seconds until there have been 2*CALIB_VAL adjustments."]
+pub struct CALIB_VAL_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> CALIB_VAL_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x3f) | (value as u32 & 0x3f);
+        self.w
+    }
+}
+#[doc = "Field `CALIB_SIGN` reader - Calibration sign: 0= Negative sign: remove pulses (it takes more clock ticks to count one second) 1= Positive sign: add pulses (it takes less clock ticks to count one second)"]
+pub struct CALIB_SIGN_R(crate::FieldReader<bool, bool>);
+impl CALIB_SIGN_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CALIB_SIGN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CALIB_SIGN_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CALIB_SIGN` writer - Calibration sign: 0= Negative sign: remove pulses (it takes more clock ticks to count one second) 1= Positive sign: add pulses (it takes less clock ticks to count one second)"]
+pub struct CALIB_SIGN_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> CALIB_SIGN_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | ((value as u32 & 0x01) << 6);
+        self.w
+    }
+}
+#[doc = "Field `CAL_OUT` reader - Output enable for 512Hz signal for calibration and allow CALIB_VAL to be written. Note that calibration does not affect the 512Hz output signal."]
+pub struct CAL_OUT_R(crate::FieldReader<bool, bool>);
+impl CAL_OUT_R {
+    pub(crate) fn new(bits: bool) -> Self {
+        CAL_OUT_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for CAL_OUT_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `CAL_OUT` writer - Output enable for 512Hz signal for calibration and allow CALIB_VAL to be written. Note that calibration does not affect the 512Hz output signal."]
+pub struct CAL_OUT_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> CAL_OUT_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 31)) | ((value as u32 & 0x01) << 31);
+        self.w
+    }
+}
+impl R {
+    #[doc = "Bits 0:5 - Calibration value for absolute frequency (at a fixed temperature). Each step causes 128 ticks to be added or removed each hour. Effectively that means that each step is 1.085ppm (= 128/(60*60*32,768)). Positive values 0x01-0x3c (1..60) add pulses, negative values remove pulses, thus giving a range of +/-65.1 ppm (limited by 60 minutes per hour, not the range of this field) Calibration is performed hourly, starting at 59 minutes and 59 seconds, and applied as 64 ticks every 30 seconds until there have been 2*CALIB_VAL adjustments."]
+    #[inline(always)]
+    pub fn calib_val(&self) -> CALIB_VAL_R {
+        CALIB_VAL_R::new((self.bits & 0x3f) as u8)
+    }
+    #[doc = "Bit 6 - Calibration sign: 0= Negative sign: remove pulses (it takes more clock ticks to count one second) 1= Positive sign: add pulses (it takes less clock ticks to count one second)"]
+    #[inline(always)]
+    pub fn calib_sign(&self) -> CALIB_SIGN_R {
+        CALIB_SIGN_R::new(((self.bits >> 6) & 0x01) != 0)
+    }
+    #[doc = "Bit 31 - Output enable for 512Hz signal for calibration and allow CALIB_VAL to be written. Note that calibration does not affect the 512Hz output signal."]
+    #[inline(always)]
+    pub fn cal_out(&self) -> CAL_OUT_R {
+        CAL_OUT_R::new(((self.bits >> 31) & 0x01) != 0)
+    }
+}
+impl W {
+    #[doc = "Bits 0:5 - Calibration value for absolute frequency (at a fixed temperature). Each step causes 128 ticks to be added or removed each hour. Effectively that means that each step is 1.085ppm (= 128/(60*60*32,768)). Positive values 0x01-0x3c (1..60) add pulses, negative values remove pulses, thus giving a range of +/-65.1 ppm (limited by 60 minutes per hour, not the range of this field) Calibration is performed hourly, starting at 59 minutes and 59 seconds, and applied as 64 ticks every 30 seconds until there have been 2*CALIB_VAL adjustments."]
+    #[inline(always)]
+    pub fn calib_val(&mut self) -> CALIB_VAL_W {
+        CALIB_VAL_W { w: self }
+    }
+    #[doc = "Bit 6 - Calibration sign: 0= Negative sign: remove pulses (it takes more clock ticks to count one second) 1= Positive sign: add pulses (it takes less clock ticks to count one second)"]
+    #[inline(always)]
+    pub fn calib_sign(&mut self) -> CALIB_SIGN_W {
+        CALIB_SIGN_W { w: self }
+    }
+    #[doc = "Bit 31 - Output enable for 512Hz signal for calibration and allow CALIB_VAL to be written. Note that calibration does not affect the 512Hz output signal."]
+    #[inline(always)]
+    pub fn cal_out(&mut self) -> CAL_OUT_W {
+        CAL_OUT_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Oscillator calibration for absolute frequency\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cal_ctl](index.html) module"]
+pub struct CAL_CTL_SPEC;
+impl crate::RegisterSpec for CAL_CTL_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [cal_ctl::R](R) reader structure"]
+impl crate::Readable for CAL_CTL_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [cal_ctl::W](W) writer structure"]
+impl crate::Writable for CAL_CTL_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets CAL_CTL to value 0"]
+impl crate::Resettable for CAL_CTL_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
+    }
+}
