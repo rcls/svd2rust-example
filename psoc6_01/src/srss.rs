@@ -25,24 +25,21 @@ pub struct RegisterBlock {
     #[doc = "0x188 - Watchdog Counter Match Register"]
     pub wdt_match: crate::Reg<wdt_match::WDT_MATCH_SPEC>,
     _reserved10: [u8; 0x74],
-    #[doc = "0x200..0x22c - Multi-Counter Watchdog Timer"]
-    pub mcwdt_struct0: MCWDT_STRUCT,
-    _reserved11: [u8; 0x14],
-    #[doc = "0x240..0x26c - Multi-Counter Watchdog Timer"]
-    pub mcwdt_struct1: MCWDT_STRUCT,
-    _reserved12: [u8; 0x94],
+    #[doc = "0x200 - Multi-Counter Watchdog Timer"]
+    pub mcwdt_struct: crate::ArrayProxy<MCWDT_STRUCT, 2, 0x40>,
+    _reserved11: [u8; 0x0100],
     #[doc = "0x300..0x340 - Clock DSI Select Register"]
     pub clk_dsi_select: [crate::Reg<clk_dsi_select::CLK_DSI_SELECT_SPEC>; 16],
     #[doc = "0x340..0x380 - Clock Path Select Register"]
     pub clk_path_select: [crate::Reg<clk_path_select::CLK_PATH_SELECT_SPEC>; 16],
     #[doc = "0x380..0x3c0 - Clock Root Select Register"]
     pub clk_root_select: [crate::Reg<clk_root_select::CLK_ROOT_SELECT_SPEC>; 16],
-    _reserved15: [u8; 0x0140],
+    _reserved14: [u8; 0x0140],
     #[doc = "0x500 - Clock selection register"]
     pub clk_select: crate::Reg<clk_select::CLK_SELECT_SPEC>,
     #[doc = "0x504 - Timer Clock Control Register"]
     pub clk_timer_ctl: crate::Reg<clk_timer_ctl::CLK_TIMER_CTL_SPEC>,
-    _reserved17: [u8; 0x04],
+    _reserved16: [u8; 0x04],
     #[doc = "0x50c - ILO Configuration"]
     pub clk_ilo_config: crate::Reg<clk_ilo_config::CLK_ILO_CONFIG_SPEC>,
     #[doc = "0x510 - IMO Configuration"]
@@ -55,15 +52,15 @@ pub struct RegisterBlock {
     pub clk_cal_cnt1: crate::Reg<clk_cal_cnt1::CLK_CAL_CNT1_SPEC>,
     #[doc = "0x520 - Clock Calibration Counter 2"]
     pub clk_cal_cnt2: crate::Reg<clk_cal_cnt2::CLK_CAL_CNT2_SPEC>,
-    _reserved23: [u8; 0x08],
+    _reserved22: [u8; 0x08],
     #[doc = "0x52c - ECO Configuration Register"]
     pub clk_eco_config: crate::Reg<clk_eco_config::CLK_ECO_CONFIG_SPEC>,
     #[doc = "0x530 - ECO Status Register"]
     pub clk_eco_status: crate::Reg<clk_eco_status::CLK_ECO_STATUS_SPEC>,
-    _reserved25: [u8; 0x08],
+    _reserved24: [u8; 0x08],
     #[doc = "0x53c - Precision ILO Configuration Register"]
     pub clk_pilo_config: crate::Reg<clk_pilo_config::CLK_PILO_CONFIG_SPEC>,
-    _reserved26: [u8; 0x40],
+    _reserved25: [u8; 0x40],
     #[doc = "0x580 - FLL Configuration Register"]
     pub clk_fll_config: crate::Reg<clk_fll_config::CLK_FLL_CONFIG_SPEC>,
     #[doc = "0x584 - FLL Configuration Register 2"]
@@ -74,13 +71,13 @@ pub struct RegisterBlock {
     pub clk_fll_config4: crate::Reg<clk_fll_config4::CLK_FLL_CONFIG4_SPEC>,
     #[doc = "0x590 - FLL Status Register"]
     pub clk_fll_status: crate::Reg<clk_fll_status::CLK_FLL_STATUS_SPEC>,
-    _reserved31: [u8; 0x6c],
+    _reserved30: [u8; 0x6c],
     #[doc = "0x600..0x63c - PLL Configuration Register"]
     pub clk_pll_config: [crate::Reg<clk_pll_config::CLK_PLL_CONFIG_SPEC>; 15],
-    _reserved32: [u8; 0x04],
+    _reserved31: [u8; 0x04],
     #[doc = "0x640..0x67c - PLL Status Register"]
     pub clk_pll_status: [crate::Reg<clk_pll_status::CLK_PLL_STATUS_SPEC>; 15],
-    _reserved33: [u8; 0x84],
+    _reserved32: [u8; 0x84],
     #[doc = "0x700 - SRSS Interrupt Register"]
     pub srss_intr: crate::Reg<srss_intr::SRSS_INTR_SPEC>,
     #[doc = "0x704 - SRSS Interrupt Set Register"]
@@ -91,12 +88,12 @@ pub struct RegisterBlock {
     pub srss_intr_masked: crate::Reg<srss_intr_masked::SRSS_INTR_MASKED_SPEC>,
     #[doc = "0x710 - SRSS Interrupt Configuration Register"]
     pub srss_intr_cfg: crate::Reg<srss_intr_cfg::SRSS_INTR_CFG_SPEC>,
-    _reserved38: [u8; 0xec],
+    _reserved37: [u8; 0xec],
     #[doc = "0x800 - Reset Cause Observation Register"]
     pub res_cause: crate::Reg<res_cause::RES_CAUSE_SPEC>,
     #[doc = "0x804 - Reset Cause Observation Register 2"]
     pub res_cause2: crate::Reg<res_cause2::RES_CAUSE2_SPEC>,
-    _reserved40: [u8; 0x76f8],
+    _reserved39: [u8; 0x76f8],
     #[doc = "0x7f00 - Reference Trim Register"]
     pub pwr_trim_ref_ctl: crate::Reg<pwr_trim_ref_ctl::PWR_TRIM_REF_CTL_SPEC>,
     #[doc = "0x7f04 - BOD/OVP Trim Register"]
@@ -105,13 +102,13 @@ pub struct RegisterBlock {
     pub clk_trim_cco_ctl: crate::Reg<clk_trim_cco_ctl::CLK_TRIM_CCO_CTL_SPEC>,
     #[doc = "0x7f0c - CCO Trim Register 2"]
     pub clk_trim_cco_ctl2: crate::Reg<clk_trim_cco_ctl2::CLK_TRIM_CCO_CTL2_SPEC>,
-    _reserved44: [u8; 0x20],
+    _reserved43: [u8; 0x20],
     #[doc = "0x7f30 - Wakeup Trim Register"]
     pub pwr_trim_wake_ctl: crate::Reg<pwr_trim_wake_ctl::PWR_TRIM_WAKE_CTL_SPEC>,
-    _reserved45: [u8; 0x7fdc],
+    _reserved44: [u8; 0x7fdc],
     #[doc = "0xff10 - LVD Trim Register"]
     pub pwr_trim_lvd_ctl: crate::Reg<pwr_trim_lvd_ctl::PWR_TRIM_LVD_CTL_SPEC>,
-    _reserved46: [u8; 0x04],
+    _reserved45: [u8; 0x04],
     #[doc = "0xff18 - ILO Trim Register"]
     pub clk_trim_ilo_ctl: crate::Reg<clk_trim_ilo_ctl::CLK_TRIM_ILO_CTL_SPEC>,
     #[doc = "0xff1c - Power System Trim Register"]

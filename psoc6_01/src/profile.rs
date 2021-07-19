@@ -18,29 +18,8 @@ pub struct RegisterBlock {
     #[doc = "0x7cc - Profile interrupt masked"]
     pub intr_masked: crate::Reg<intr_masked::INTR_MASKED_SPEC>,
     _reserved7: [u8; 0x30],
-    #[doc = "0x800..0x80c - Profile counter structure"]
-    pub cnt_struct0: CNT_STRUCT,
-    _reserved8: [u8; 0x04],
-    #[doc = "0x810..0x81c - Profile counter structure"]
-    pub cnt_struct1: CNT_STRUCT,
-    _reserved9: [u8; 0x04],
-    #[doc = "0x820..0x82c - Profile counter structure"]
-    pub cnt_struct2: CNT_STRUCT,
-    _reserved10: [u8; 0x04],
-    #[doc = "0x830..0x83c - Profile counter structure"]
-    pub cnt_struct3: CNT_STRUCT,
-    _reserved11: [u8; 0x04],
-    #[doc = "0x840..0x84c - Profile counter structure"]
-    pub cnt_struct4: CNT_STRUCT,
-    _reserved12: [u8; 0x04],
-    #[doc = "0x850..0x85c - Profile counter structure"]
-    pub cnt_struct5: CNT_STRUCT,
-    _reserved13: [u8; 0x04],
-    #[doc = "0x860..0x86c - Profile counter structure"]
-    pub cnt_struct6: CNT_STRUCT,
-    _reserved14: [u8; 0x04],
-    #[doc = "0x870..0x87c - Profile counter structure"]
-    pub cnt_struct7: CNT_STRUCT,
+    #[doc = "0x800 - Profile counter structure"]
+    pub cnt_struct: crate::ArrayProxy<CNT_STRUCT, 8, 0x10>,
 }
 #[doc = r"Register block"]
 #[repr(C)]

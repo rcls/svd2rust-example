@@ -90,17 +90,8 @@ pub struct RegisterBlock {
     #[doc = "0x7cc - Interrupt masked register"]
     pub intr_masked: crate::Reg<intr_masked::INTR_MASKED_SPEC>,
     _reserved36: [u8; 0x30],
-    #[doc = "0x800..0x874 - Device (only used in XIP mode)"]
-    pub device0: DEVICE,
-    _reserved37: [u8; 0x0c],
-    #[doc = "0x880..0x8f4 - Device (only used in XIP mode)"]
-    pub device1: DEVICE,
-    _reserved38: [u8; 0x0c],
-    #[doc = "0x900..0x974 - Device (only used in XIP mode)"]
-    pub device2: DEVICE,
-    _reserved39: [u8; 0x0c],
-    #[doc = "0x980..0x9f4 - Device (only used in XIP mode)"]
-    pub device3: DEVICE,
+    #[doc = "0x800 - Device (only used in XIP mode)"]
+    pub device: crate::ArrayProxy<DEVICE, 4, 0x80>,
 }
 #[doc = r"Register block"]
 #[repr(C)]

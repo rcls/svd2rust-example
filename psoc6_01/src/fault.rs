@@ -1,11 +1,8 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    #[doc = "0x00..0xd0 - Fault structure"]
-    pub struct0: STRUCT,
-    _reserved1: [u8; 0x30],
-    #[doc = "0x100..0x1d0 - Fault structure"]
-    pub struct1: STRUCT,
+    #[doc = "0x00 - Fault structure"]
+    pub struct_: crate::ArrayProxy<STRUCT, 2, 0x0100>,
 }
 #[doc = r"Register block"]
 #[repr(C)]

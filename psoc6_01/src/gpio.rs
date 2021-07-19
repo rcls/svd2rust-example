@@ -1,51 +1,9 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    #[doc = "0x00..0x40 - GPIO port registers"]
-    pub prt0: PRT,
-    _reserved1: [u8; 0x40],
-    #[doc = "0x80..0xc0 - GPIO port registers"]
-    pub prt1: PRT,
-    _reserved2: [u8; 0x40],
-    #[doc = "0x100..0x140 - GPIO port registers"]
-    pub prt2: PRT,
-    _reserved3: [u8; 0x40],
-    #[doc = "0x180..0x1c0 - GPIO port registers"]
-    pub prt3: PRT,
-    _reserved4: [u8; 0x40],
-    #[doc = "0x200..0x240 - GPIO port registers"]
-    pub prt4: PRT,
-    _reserved5: [u8; 0x40],
-    #[doc = "0x280..0x2c0 - GPIO port registers"]
-    pub prt5: PRT,
-    _reserved6: [u8; 0x40],
-    #[doc = "0x300..0x340 - GPIO port registers"]
-    pub prt6: PRT,
-    _reserved7: [u8; 0x40],
-    #[doc = "0x380..0x3c0 - GPIO port registers"]
-    pub prt7: PRT,
-    _reserved8: [u8; 0x40],
-    #[doc = "0x400..0x440 - GPIO port registers"]
-    pub prt8: PRT,
-    _reserved9: [u8; 0x40],
-    #[doc = "0x480..0x4c0 - GPIO port registers"]
-    pub prt9: PRT,
-    _reserved10: [u8; 0x40],
-    #[doc = "0x500..0x540 - GPIO port registers"]
-    pub prt10: PRT,
-    _reserved11: [u8; 0x40],
-    #[doc = "0x580..0x5c0 - GPIO port registers"]
-    pub prt11: PRT,
-    _reserved12: [u8; 0x40],
-    #[doc = "0x600..0x640 - GPIO port registers"]
-    pub prt12: PRT,
-    _reserved13: [u8; 0x40],
-    #[doc = "0x680..0x6c0 - GPIO port registers"]
-    pub prt13: PRT,
-    _reserved14: [u8; 0x40],
-    #[doc = "0x700..0x740 - GPIO port registers"]
-    pub prt14: PRT,
-    _reserved15: [u8; 0x38c0],
+    #[doc = "0x00 - GPIO port registers"]
+    pub prt: crate::ArrayProxy<PRT, 15, 0x80>,
+    _reserved1: [u8; 0x4000],
     #[doc = "0x4000 - Interrupt port cause register 0"]
     pub intr_cause0: crate::Reg<intr_cause0::INTR_CAUSE0_SPEC>,
     #[doc = "0x4004 - Interrupt port cause register 1"]
